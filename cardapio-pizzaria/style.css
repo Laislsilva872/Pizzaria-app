@@ -1,0 +1,86 @@
+:root{ --vermelho:#9A2E25; --dourado:#D39B3E; }
+.loja-card { margin-top: -40px; position: relative; z-index:2; }
+.card-img-placeholder{ height:110px; border-radius:14px 14px 0 0; background:linear-gradient(135deg,#f0d9a8, var(--dourado)); font-size:2.2rem; }
+.price{ color: var(--vermelho); font-weight:bold; }
+
+.topo{
+    height:180px;
+    background:url("img/banner.png") center/cover no-repeat;
+}
+
+.card-foto { height:180px; width:100%;  object-fit:cover; object-position: center 40%;}
+.card-promocao { width:100%; aspect-ratio:4 / 3; object-fit: cover;}
+.logo-circulo { width:64px; height: 64px; object-fit: cover; border: 2px solid #fff;}
+
+.navbar-bella{ background:var(--vermelho)}
+
+
+.nav-pills{
+    --bs-nav-pills-link-active-bg: var(--vermelho);
+    --bs-nav-link-color: var(--vermelho);
+    --bs-nav-link-hover-color: #7d241d;
+}
+
+.nav-pills{
+    display: flex;
+    gap: 16px;
+}
+
+.btn-qtd{ border:1px solid var(--vermelho); color:var(--vermelho); background: transparent; }
+.btn-qtd:hover{ background: var(--vermelho); color: #fff;}
+ 
+html{scroll-behavior: smooth; }
+#cardapio, #como-instalar, #contato{ scroll-margin-top:70px; }
+
+.item-card{ overflow:hidden; }
+.item-foto-wrap{ width:120px; min-height:120px; }
+.item-foto{ width:100%; height:100%; object-fit:cover; display:block; }
+.item-foto-vazia{ display:flex; align-items:center; justify-content:center; background:linear-gradient(135deg,#f0d9a8,var(--dourado)); font-size:2rem; }
+.item-add{ position:absolute; right:8px; bottom:8px; width:34px; height:34px; padding:0; }
+
+.barra-categorias {
+    position: sticky;
+    top: 56px;
+    z-index: 10;
+    background: #fff;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+
+.barra-categorias::-webkit-scrollbar{ display: none;}
+.barra-categorias .nav-pills{ flex-wrap: nowrap; }
+.barra-categorias .nav-link{ white-space: nowrap; }
+.categoria{ scroll-margin-top: 130px; }
+
+.barra-categorias .nav-pills{ gap : 8px}
+
+.barra-categorias .nav-link{
+    border: 1px solid #e3c9c5;
+    background-color: #fff7f6;
+    border-radius: 999px;
+    padding: 6px 14px;
+    font-size: 0.9rem;
+    transition: background-color .2s, border-color .2s;
+}
+
+.barra-categorias .navlink:hover{
+    background-color: #f6e3e0;
+    border-color: var(--vermelho);
+
+}
+.barra-categorias .nav-link:active{
+    background-color: #ecc9c4;
+}
+.barra-categorias .nav-link.active{
+    background-color: var(--vermelho);
+    border-color: var(--vermelho);
+    color: #fff;
+}
+
+.carousel-foto { height: 260px; object-fit: cover;}
+.carousel-caption { background: rgba(0,0,0,.55); border-radius:12px; left: 8%; right: 8%; bottom: 36px; padding: 8px; }
+
+.badge-pulo { animation: pulo .3s; }
+@keyframes pulo { 50% { transform: scale(1.5); } }
