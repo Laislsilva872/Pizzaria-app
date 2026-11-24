@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizzaria - Cardápio Digital</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#9A2E25">
+    <link rel="apple-touch-icon" href="img/icon-192.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="img/logo.jpeg">
+</head>
+<body>
+
+     <nav class="navbar navbar-expand-md navbar-dark navbar-bella sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">Bella Notte</a>
+
+            <div class="d-flex align-items-center gap-2 order-md-last">
+                <button class="btn btn-light btn-sm" data-bs-toggle="modal" data-bs-target="#carrinhoModal" aria-label="Abrir carrinho">
+                    <i class="bi bi-cart3" aria-hidden="true"></i> <span class="badge bg-danger" id="cart-count">0</span>
+                </button>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuNav" aria-controls="menuNav" aria-expanded="false" aria-label="Abrir menu">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+
+            <div class="collapse navbar-collapse" id="menuNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#cardapio">Cardápio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#como-instalar">Como instalar</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+  
+    <div class="topo" aria-hidden="true"></div>
+
+    <header class="container">
+        <div class="d-flex align-items-center gap-3 bg-white rounded-4 shadow p-3 loja-card">
+             <img src="img/logo.jpeg" alt="Logo-pizzaria" class="rounded-circle flex-shrink-0 logo-circulo">
+            <div class="flex-grow-1">
+                <h1 class="fs-4 mb-0">Pizzaria Bella Notte</h1>
+                <small class="text-muted">Delivery · a partir de R$25,00</small>
+            </div>
+        </div> 
+           <p    id="aviso-loja" class="alert alert-warning py-2 px-3 my-3" role="status"></p>
+    </header>
+
+    <main class="container">
+
+
+        <section aria-labelledby="destaque-titulo" class="mb-4">
+            <h2 id="destaque-titulo" class="fs-5 mb-3">Destaque</h2>
+            <div id="carroselDestaque" class="carousel slide" data-bs-ride="carousel">
+               <div class="carousel-indicators">
+                  <button type="button" data-bs-target="#carroselDestaque" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                  <button type="button" data-bs-target="#carroselDestaque" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                  <button type="button" data-bs-target="#carroselDestaque" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                  <button type="button" data-bs-target="#carroselDestaque" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                  <button type="button" data-bs-target="#carroselDestaque" data-bs-slide-to="4" aria-label="Slide 5"></button>
+               </div> 
+            <div class="carousel-inner rounded-4">
+                <div class="carousel-item active">
+                    <img src="img/pizza-calabresa.jpg" class="d-block w-100 carousel-foto" alt="Pizza de calabresa">
+                    <div class="carousel-caption">
+                        <h3 class="fs-5 mb-1">Promo calabresa</h3>
+                        <p class="mb-2">R$ 32,90</p>
+                        <button class="btn btn-danger btn-sm btn-add" data-nome="Promo Calabresa" data-preco="32.9">Pedir agora</button>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="img/pizza-frango-calabresa.jpeg" class="d-block w-100 carousel-foto" alt="Combo calabresa e frango com refrigerante">
+                    <div class="carousel-caption">
+                        <h3 class="fs-5 mb-1">Combo família</h3>
+                        <p class="mb-2">R$ 50,90</p>
+                        <button class="btn btn-danger btn-sm btn-add" data-nome="Combo Família" data-preco="50.9">Pedir agora</button>
+                    </div>
+                </div>
+                 <div class="carousel-item">
+                    <img src="img/pizza-camarao.jpeg" class="d-block w-100 carousel-foto" alt="Pizza de camarão">
+                    <div class="carousel-caption">
+                        <h3 class="fs-5 mb-1">Camarão</h3>
+                        <p class="mb-2">Média por R$ 50,00</p>
+                        <button class="btn btn-danger btn-sm btn-add" data-nome="Camarão (Média)" data-preco="50">Pedir agora</button>
+                    </div>
+                </div>
+                 <div class="carousel-item">
+                    <img src="img/pizza-sertaneja.jpg" class="d-block w-100 carousel-foto" alt="Pizza sertaneja">
+                    <div class="carousel-caption">
+                        <h3 class="fs-5 mb-1">Sertaneja</h3>
+                        <p class="mb-2">Média por R$ 54,00</p>
+                        <button class="btn btn-danger btn-sm btn-add" data-nome="Sertaneja (Média)" data-preco="54">Pedir agora</button>
+                    </div>
+                </div>
+                 <div class="carousel-item">
+                    <img src="img/pizza-shimeji-pepperoni.jpeg" class="d-block w-100 carousel-foto" alt="Pizza de Shimeji com Pepperoni">
+                    <div class="carousel-caption">
+                        <h3 class="fs-5 mb-1">Shimeji e Pepperoni</h3>
+                        <p class="mb-2">Média por R$ 56,00</p>
+                        <button class="btn btn-danger btn-sm btn-add" data-nome="Shimeji e pepperoni (Média)" data-preco="56">Pedir agora</button>
+                    </div>
+                 </div>
+                 </div>
+                 <button class="carousel-control-prev" type="button" data-bs-target="#carroselDestaque" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Anterior</span>
+                 </button>        
+                 <button class="carousel-control-next" type="button" data-bs-target="#carroselDestaque" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Próximo</span>
+                 </button>
+            </div>
+        </section>      
+
+
+        <nav id="cardapio" class="barra-categorias" aria-label="Categorias do cardápio">
+           <ul class="nav nav-pills" id="abas"></ul>
+        </nav>
+
+        <div id="conteudo-abas" data-bs-spy="scroll" data-bs-target="#cardapio" data-bs-root-margin="-130px 0px -60% 0px" tabindex="0"></div>
+         <!-- Preferencias e alergias -->
+    <section id="secao-perfil" class="my-5" aria-labelledby="perfil-titulo">
+        <h2 id="perfil-titulo" class="fs-5 mb-1">Preferências e alergias</h2>
+        <p class="small text-muted mb-3">Marque o que vale para você e clique em Salvar. A lista mostra só o que combina com você e avisa se tiver algo que você não pode comer. Em caso de alergia grave, confirme sempre com a pizzaria.</p>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="h5">Preferências</h3>
+                        <div id="perfilPreferencias"></div>
+                        <h3 class="h5 mt-3">Alergias</h3>
+                        <div id="perfilAlergias"></div>
+                        <div class="input-group input-group-sm mt-2">
+                            <input type="text" id="alergiaExtra" class="form-control" maxlength="30" placeholder="Outra alergia (ex.: cebola)" aria-label="Outra alergia">
+                            <button class="btn btn-outline-secondary" id="btnAddAlergia" type="button">Adicionar</button>
+                        </div>
+                        <button id="btnSalvarPerfil" class="btn btn-primary mt-3">Salvar</button>
+                        <button id="btnLimparPerfil" class="btn btn-outline-secondary mt-3">Limpar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div id="perfilCardapio" class="row g-3"></div>
+            </div>
+        </div>
+    </section>
+    </main>
+      <!--
+        Criei esta seção para ensinar o cliente a instalar o cardápio como se fosse um aplicativo, tanto no celular quanto no computador. O id "como-instalar" precisa ser exatamente esse porque o link da navbar já aponta para #como-instalar; se eu escrevesse diferente, o clique no menu não levaria a lugar nenhum. Coloquei a seção depois do main e antes do rodapé porque na navbar a ordem dos links é Cardápio, Como instalar e Contato, e quis que a página seguisse a mesma ordem do menu. Reaproveitei o container e o my-5 do Bootstrap para manter o mesmo alinhamento do resto da página e liguei o título à seção com aria-labelledby, do mesmo jeito que fiz na seção de destaque, para que leitores de tela anunciem o nome dela. O espaço no topo quando o link é clicado já estava resolvido no style.css, no scroll-margin-top das âncoras, então a navbar fixa não cobre o título.
+    -->
+    <section id="como-instalar" class="container my-5" aria-labelledby="instalar-titulo">
+
+        <!--
+            Usei o mesmo tamanho de título do "Destaque" (fs-5) para esta seção não parecer que veio de outro site. O texto de apresentação é curto de propósito: quem chega aqui só quer saber se vale a pena e como se faz, então explico em uma frase o ganho, que é usar como aplicativo, e já peço para a pessoa escolher o aparelho dela.
+        -->
+        <h2 id="instalar-titulo" class="fs-5 mb-1">Como instalar</h2>
+        <p class="text-muted mb-3">Deixe o cardápio da Bella Notte na tela do seu aparelho e peça sua pizza com um toque, como se fosse um aplicativo. Escolha o seu aparelho:</p>
+
+        <div class="bg-white rounded-4 shadow p-3 p-md-4">
+
+            <!--
+                Escolhi abas em vez de mostrar os três passo a passo de uma vez porque no celular a página ficaria enorme e a pessoa só precisa ver o do aparelho dela. Usei nav-pills porque o style.css já pinta esse tipo de aba de vermelho usando a variável de cor da pizzaria, então elas ficam parecidas com as categorias do cardápio sem eu precisar inventar uma cor nova. A troca de aba é feita pelo próprio Bootstrap, com data-bs-toggle="pill", por isso não precisei escrever JavaScript para isso. Os ícones vêm do Bootstrap Icons, que já está carregado no head, então não baixei nenhuma imagem a mais. A aba do Android começa ativa porque o Android é o sistema mais usado nos celulares no Brasil, e o script.js troca para a aba certa quando percebe que a pessoa está num iPhone ou no computador.
+            -->
+            <ul class="nav nav-pills instalar-abas" id="instalar-abas" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="aba-android" data-bs-toggle="pill" data-bs-target="#painel-android" type="button" role="tab" aria-controls="painel-android" aria-selected="true">
+                        <i class="bi bi-android2" aria-hidden="true"></i> Android
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="aba-ios" data-bs-toggle="pill" data-bs-target="#painel-ios" type="button" role="tab" aria-controls="painel-ios" aria-selected="false">
+                        <i class="bi bi-apple" aria-hidden="true"></i> iPhone e iPad
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="aba-desktop" data-bs-toggle="pill" data-bs-target="#painel-desktop" type="button" role="tab" aria-controls="painel-desktop" aria-selected="false">
+                        <i class="bi bi-laptop" aria-hidden="true"></i> Computador
+                    </button>
+                </li>
+            </ul>
+
+            <div class="tab-content mt-3">
+
+                <!--
+                    Painel do Android. Escrevi os passos para o Chrome porque ele já vem instalado na grande maioria dos celulares Android, então a pessoa não precisa baixar nada para seguir o tutorial. No passo 3 coloquei duas opções de texto, "Instalar app" e "Adicionar à tela inicial", porque dependendo da versão do Chrome o menu mostra uma ou a outra, e assim ninguém fica perdido procurando um botão que não existe. Usei o ícone de três pontinhos dentro do texto, na cor vermelha, para a pessoa reconhecer exatamente qual botão tocar.
+                -->
+                <div class="tab-pane fade show active" id="painel-android" role="tabpanel" aria-labelledby="aba-android" tabindex="0">
+                    <ol class="passos">
+                        <li>Abra o cardápio da Bella Notte no <strong>Chrome</strong>.</li>
+                        <li>Toque nos três pontinhos <i class="bi bi-three-dots-vertical" aria-hidden="true"></i> no canto superior direito da tela.</li>
+                        <li>Toque em <strong>Instalar app</strong>. Se essa opção não aparecer, toque em <strong>Adicionar à tela inicial</strong>.</li>
+                        <li>Confirme tocando em <strong>Instalar</strong> (ou em <strong>Adicionar</strong>).</li>
+                        <li>Pronto! O ícone da Bella Notte aparece na sua tela inicial. É só tocar nele para abrir o cardápio.</li>
+                    </ol>
+                </div>
+
+                <!--
+                    Painel do iPhone e do iPad. Aqui o caminho é diferente do Android, porque a Apple mudou o Safari no iOS 26: o botão Compartilhar agora fica dentro do botão "Mais", ao lado da barra de endereço. Mesmo assim deixei um aviso no passo 2 para quem ainda usa uma versão mais antiga, em que o Compartilhar fica direto na barra de baixo. Recomendei o Safari porque é o navegador em que esse caminho é garantido. O passo 4 cita a opção "Abrir como App Web" porque é ela que faz o cardápio abrir em tela cheia, sem a barra do Safari, e ela só aparece em alguns casos, por isso escrevi "se aparecer".
+                -->
+                <div class="tab-pane fade" id="painel-ios" role="tabpanel" aria-labelledby="aba-ios" tabindex="0">
+                    <ol class="passos">
+                        <li>Abra o cardápio da Bella Notte no <strong>Safari</strong>.</li>
+                        <li>Toque no botão <strong>Mais</strong> <i class="bi bi-three-dots" aria-hidden="true"></i>, ao lado da barra de endereço, e escolha <strong>Compartilhar</strong> <i class="bi bi-box-arrow-up" aria-hidden="true"></i>. Em versões mais antigas do iOS, o botão Compartilhar fica direto na barra de baixo.</li>
+                        <li>Role a lista para baixo e toque em <strong>Adicionar à Tela de Início</strong> <i class="bi bi-plus-square" aria-hidden="true"></i>.</li>
+                        <li>Se aparecer a opção <strong>Abrir como App Web</strong>, deixe ela ligada. Depois toque em <strong>Adicionar</strong>, no canto superior direito.</li>
+                        <li>Pronto! O ícone da Bella Notte aparece na sua Tela de Início.</li>
+                    </ol>
+                </div>
+
+                <!--
+                    Painel do computador. Escolhi falar do Chrome e do Edge juntos porque os dois são baseados no mesmo motor e têm o mesmo ícone de instalar na barra de endereço, então um tutorial serve para os dois. No passo 3 deixei o caminho pelo menu para quem não enxerga o ícone, já que o Chrome às vezes esconde ele. No fim coloquei uma observação separada para o Safari do Mac, que tem um caminho próprio pelo menu Arquivo, e preferi não misturar com a lista principal para ela continuar curta e fácil de seguir.
+                -->
+                <div class="tab-pane fade" id="painel-desktop" role="tabpanel" aria-labelledby="aba-desktop" tabindex="0">
+                    <ol class="passos">
+                        <li>Abra o cardápio da Bella Notte no <strong>Chrome</strong> ou no <strong>Edge</strong>.</li>
+                        <li>Na barra de endereço, clique no ícone de instalar, um monitor com uma setinha para baixo, que fica no canto direito.</li>
+                        <li>Se você não encontrar o ícone, clique nos três pontinhos <i class="bi bi-three-dots-vertical" aria-hidden="true"></i>, vá em <strong>Transmitir, salvar e compartilhar</strong> e escolha <strong>Instalar página como app</strong>. No Edge, o caminho é <strong>Aplicativos</strong> e depois <strong>Instalar este site como um aplicativo</strong>.</li>
+                        <li>Clique em <strong>Instalar</strong> na janelinha que abrir.</li>
+                        <li>Pronto! O cardápio abre em uma janela só dele e passa a aparecer entre os seus aplicativos.</li>
+                    </ol>
+                    <p class="small text-muted mt-3 mb-0">Usa o Safari no Mac? Abra o cardápio, clique em <strong>Arquivo</strong> e depois em <strong>Adicionar ao Dock</strong>.</p>
+                </div>
+            </div>
+
+            <!--
+                Fiz esta caixinha de dica com a borda dourada, que é a outra cor da identidade da pizzaria no style.css, a variável dourado. Quis um destaque que chamasse atenção sem brigar com o vermelho dos passos. A frase explica o benefício de instalar, porque o cliente só vai se dar ao trabalho de seguir os passos se entender que vai ganhar algo com isso.
+            -->
+            <div class="dica-instalar mt-4">
+                <strong>Por que instalar?</strong> O cardápio abre em tela cheia, sem a barra do navegador, e fica a um toque de distância na hora da fome.
+            </div>
+
+            <!--
+                O botão final leva de volta para o cardápio pelo link #cardapio, que é a mesma âncora do primeiro item da navbar. Usei btn-danger porque é a mesma cor dos botões "Pedir agora" do carrossel, então o cliente entende que este é o botão de ação principal da página e que ele leva a um pedido. Deixei como link e não como button porque ele navega para outro ponto da página, e o html scroll-behavior smooth do style.css já faz a rolagem suave.
+            -->
+            <a href="#cardapio" class="btn btn-danger mt-3">Ver o cardápio</a>
+        </div>
+    </section>
+    <div class="modal fade" id="carrinhoModal" tabindex="-1">
+    <div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+           <h2 class="modal-title fs-5">Seu carrinho</h2>
+           <button class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+        </div>
+        <div class="modal-body" id="carrinho-lista">
+          <p class="text-muted">Seu carrinho está vazio</p> 
+        </div>
+        <div class="modal-body text-center d-none" id="pedido-status"></div>
+        <div class="modal-footer flex-column align-items-stretch" id="carrinho-rodape">
+            <div class="d-flex justify-content-between mb-2">
+                <strong>Total:</strong>
+                <strong id="carrinho-total">0,00</strong>
+            </div>
+            <button class="btn btn-danger" id="btn-finalizar">Finalizar pedido</button>
+            <button class="btn btn-outline-secondary" data-bs-dismiss="modal">Continuar comprando</button>
+        </div>
+    </div>
+    </div>
+    </div>
+
+
+    <footer class="bg-dark text-light py-5 mt-5" id="contato">
+        <div class="container"><div class="row">
+            <div class="col-md-4 mb-3">
+                <h2 class="fs-6">Atendimento</h2>
+                <address class="small mb-0">
+                    Telefone: <a href="tel:+5575990876543" class="text-light">(75)9 9087-6543</a><br>
+                    E-mail: <a href="mailto:contato@pizzariabellanotte.com" class="text-light">contato@pizzariabellanotte.com</a>
+                </address>
+            </div>
+            <div class="col-md-4 mb-3">
+                <h2 class="fs-6">Horário</h2>
+                <p class="small mb-0">Terça a domingo: 18h às 23h59</p>
+            </div>
+            <div class="col-md-4 mb-3">
+                <h2 class="fs-6">Endereço</h2>
+                <address class="small mb-0">Feira de Santana - BA</address>
+            </div>
+        </div>
+    </div>
+    </footer>
+    
+    <div class="toast-container position-fixed bottom-0 start-50 translate-middle-x p-3" style="z-index:1100;">
+        <div id="toastAdd" class="toast align-items-center text-bg-success border-0" role="status" aria-live="polite" aria-atomic="true" data-bs-delay="1500">
+            <div class="d-flex">
+                <div class="toast-body" id="toastAddTexto"></div>
+            </div>
+        </div>
+    </div>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+   <script src="cardapio.js"></script>
+   <script src="script.js"></script>
+</body>
+</html>
