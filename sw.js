@@ -1,4 +1,4 @@
-const CACHE = "bella-notte-v1";
+const CACHE = "bella-notte-v2";
 
 const ARQUIVOS = [
   "./",
